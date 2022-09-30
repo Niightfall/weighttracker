@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import GraphScreen from '../Screens/GraphScreen';
+import GraphScreen1 from '../Screens/GraphScreenAll';
 import HomeScreen from '../Screens/HomeScreen';
+import GraphScreen2 from '../Screens/GraphScreenRecent';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,13 @@ function RootNavigation() {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Graph"
-          component={GraphScreen}
+          name="GraphAll"
+          component={GraphScreen1}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="GraphRecent"
+          component={GraphScreen2}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

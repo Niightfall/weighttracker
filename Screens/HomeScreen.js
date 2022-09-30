@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState, useEffect } from 'react';
-import { View, Text, StatusBar, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { NiceButton } from '../Components/NiceButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MyTextinput from '../Components/MyTextinput';
@@ -68,15 +68,16 @@ export default function HomeScreen({navigation}){
 
     return (
      <View style={styles.container}>
-      <View style={{flex: 1, flexDirection: 'column', alignItems:'center', justifyContent: 'center'}}>
+      <View style={styles.containerLogo}>
       <Text style = {styles.text}>Do your thing</Text>
       <Image 
       source={require('../Assets/Muscle.png')} 
       style={styles.image}  
       />
       </View>
-        <MyTextinput number={number} onChangeNumber={onChangeNumber}/>
-        <NiceButton 
+      <View style={styles.containerInput}>
+      <MyTextinput number={number} onChangeNumber={onChangeNumber}/>
+      <NiceButton 
         title="Add Data"
         onPress={()=>{labels.push(currentDate);
                       data.push(parseFloat(number));
@@ -85,13 +86,18 @@ export default function HomeScreen({navigation}){
                       console.log(labels);
                       console.log(data);         
         }}/>
-{/*         <NiceButton  //if a reset should ever be needed
+      {/*         <NiceButton  //if a reset should ever be needed
         title="Reset Labels"
         onPress={()=>onClear()}/> */}
-        <NiceButton 
-        title="Check Progress"
-        onPress={()=>navigation.navigate('Graph', {labels: labels, data: data})}/>
-      <StatusBar style="auto"/>
+      </View>
+      <View style={styles.containerInput}>
+      <NiceButton 
+        title="All Time Progress"
+        onPress={()=>navigation.navigate('GraphAll', {labels: labels, data: data})}/>
+      <NiceButton 
+        title="Recent Progress"
+        onPress={()=>navigation.navigate('GraphRecent', {labels: labels, data: data})}/>
+      </View>
     </View>
     );
 }
@@ -99,26 +105,23 @@ export default function HomeScreen({navigation}){
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      justifyContent: 'space-between',
+      flexDirection: 'column',
+      justifyContent: 'center',
       backgroundColor: 'silver',
-
   },
-  top:{
-      alignSelf: 'flex-end',
-      backgroundColor: 'white',
-
+  containerLogo:{
+      flex: 0, 
+      flexDirection: 'column', 
+      alignItems:'center', 
+      justifyContent: 'center',
+      paddingTop: 100,
+      paddingBottom: 300,
   },
-  middle:{
-      flex: 0.15,
-      backgroundColor: 'beige',
-      borderWidth: 3,
-  },
-  bottom:{
-      flex: 0.3,
-      backgroundColor: 'pink',
-      borderWidth: 5,
-      borderBottomLeftRadius: 20,
-      borderBottomRightRadius: 20,
+  containerInput:{
+    flex: 0, 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'flex-end'
   },
   text:{
       fontSize: 20,

@@ -4,7 +4,7 @@ import {LineChart} from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 
 
-function LineGraph({labels, data}) {
+function LineGraph({labels, data, dots}) {
 
     const screenWidth = Dimensions.get("window").width;
     const screenHight = Dimensions.get("window").height;
@@ -26,7 +26,7 @@ function LineGraph({labels, data}) {
           {
             data: data, //eventuell mit slice begrenzen.
             color: (opacity = 1) => `rgba(237, 12, 21, ${opacity})`, // optional
-            strokeWidth: 2, // optional
+            strokeWidth: 3, // optional
         
           }
         ],
@@ -42,6 +42,11 @@ function LineGraph({labels, data}) {
                 height={screenHight}
                 chartConfig={chartConfig}
                 yAxisSuffix='kg'
+                withDots={dots}
+                withShadow={false}
+                withInnerLines={false}
+                segments={12}
+                fromZero={true}    
             />
         </View>
     );
