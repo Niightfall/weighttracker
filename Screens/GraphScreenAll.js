@@ -7,7 +7,7 @@ export default function GraphScreen1({navigation, route}){
 
 const { labels, data } = route.params;
 
-const noLabel = []
+const noLabel = [labels[0], labels[labels.length-1]]
 
     return (
     <View>

@@ -15,7 +15,7 @@ function LineGraph({labels, data, dots}) {
         backgroundGradientTo: "#08130D",
         backgroundGradientToOpacity: 0.3,
         color: (opacity = 1) => `rgba(4, 97, 20, ${opacity})`,
-        strokeWidth: 3, // optional, default 3
+        strokeWidth: 2, // optional, default 3
         barPercentage: 0.5,
         useShadowColorFromDataset: false // optional
       };
@@ -26,8 +26,7 @@ function LineGraph({labels, data, dots}) {
           {
             data: data, //eventuell mit slice begrenzen.
             color: (opacity = 1) => `rgba(237, 12, 21, ${opacity})`, // optional
-            strokeWidth: 3, // optional
-        
+            strokeWidth: 2, // optional        
           }
         ],
     };
@@ -44,9 +43,7 @@ function LineGraph({labels, data, dots}) {
                 yAxisSuffix='kg'
                 withDots={dots}
                 withShadow={false}
-                withInnerLines={false}
-                segments={12}
-                fromZero={true}    
+                segments={10}    
             />
         </View>
     );
