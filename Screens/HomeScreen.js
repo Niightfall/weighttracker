@@ -84,7 +84,8 @@ export default function HomeScreen({navigation}){
                       saveLabels();
                       saveData();
                       console.log(labels);
-                      console.log(data);         
+                      console.log(data);
+                      onChangeNumber('');       
         }}/>
       {/*         <NiceButton  //if a reset should ever be needed
         title="Reset Labels"

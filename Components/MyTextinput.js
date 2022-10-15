@@ -13,7 +13,7 @@ function MyTextinput({number, onChangeNumber}) {
         value={number}
         multiline={true}
         numberOfLines={1}
-        placeholderTextColor="green"
+        placeholderTextColor="grey"
         keyboardType='numeric'
         placeholder='Enter current Weight (kg)'
         textAlign='center'
