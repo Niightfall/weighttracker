@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import GraphScreen1 from '../Screens/GraphScreenAll';
 import HomeScreen from '../Screens/HomeScreen';
 import GraphScreen2 from '../Screens/GraphScreenRecent';
+import DataScreen1 from '../Screens/DataOverviewScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,11 @@ function RootNavigation() {
         <Stack.Screen
           name="GraphRecent"
           component={GraphScreen2}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DataScreen"
+          component={DataScreen1}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

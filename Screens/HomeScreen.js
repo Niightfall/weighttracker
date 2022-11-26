@@ -62,6 +62,7 @@ export default function HomeScreen({navigation}){
     let date = new Date().getDate();
     let month = new Date().getMonth();
     let year = new Date().getFullYear();
+    //let twoDigitYear = year.toString().substring(2);
     let currentDate = date+"."+(month+1)+"."+year;
 
     const [number, onChangeNumber] = useState(null);
@@ -99,6 +100,11 @@ export default function HomeScreen({navigation}){
         title="Recent Progress"
         onPress={()=>navigation.navigate('GraphRecent', {labels: labels, data: data})}/>
       </View>
+      <View style={styles.containerInput}>
+      <NiceButton 
+        title="Data Overview"
+        onPress={()=>navigation.navigate('DataScreen', {labels: labels, data: data})}/>
+      </View>
     </View>
     );
 }
@@ -111,18 +117,20 @@ const styles = StyleSheet.create({
       backgroundColor: 'silver',
   },
   containerLogo:{
-      flex: 0, 
+      flex: 0.3, 
       flexDirection: 'column', 
       alignItems:'center', 
       justifyContent: 'center',
       paddingTop: 100,
-      paddingBottom: 300,
+      paddingBottom: 200,
   },
   containerInput:{
-    flex: 0, 
+    flex: 0.18, 
     flexDirection: 'row', 
     alignItems: 'center', 
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingBottom: 0,
+    paddingTop: 0,
   },
   text:{
       fontSize: 20,
