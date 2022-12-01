@@ -22,6 +22,10 @@ const dataRecent30 = data.slice(data.length-30, data.length);
 const average30days = dataRecent30.reduce((a,b) => a+b, 0)/dataRecent30.length;
 const average30daysrounded = Math.floor(average30days*100)/100;
 
+const maxvalue = Math.max(...data)
+const minvalue = Math.min(...data)
+const currentvalue = data[data.length-1]
+
     return (
     <View style={styles.container}>
         <Text style={styles.headerText}>Datenübersicht </Text>
@@ -32,6 +36,10 @@ const average30daysrounded = Math.floor(average30days*100)/100;
         <Text style={styles.text2}>{"\n"}Differenz der ... </Text>
         <Text style={styles.text}>letzten 2 Wochen: {"\t\t\t\t\t"} {vorzeichen2weeks} 
                                 {difference2weeks} kg</Text>
+        <Text style={styles.text2}>{"\n"}Peak Werte: </Text>
+        <Text style={styles.text}>Maximum: {"\t\t\t\t\t\t\t\t\t\t\t\t"} {maxvalue} kg</Text>
+        <Text style={styles.text}>Minimum: {"\t\t\t\t\t\t\t\t\t\t\t\t"} {minvalue} kg</Text>
+        <Text style={styles.text}>Aktuell: {"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"} {currentvalue} kg</Text>
     </View>
     );
 }
