@@ -70,7 +70,6 @@ export default function HomeScreen({navigation}){
     return (
      <View style={styles.container}>
       <View style={styles.containerLogo}>
-      <Text style = {styles.text}>Do your thing</Text>
       <Image 
       source={require('../Assets/Muscle.png')} 
       style={styles.image}  

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { NiceButton } from '../Components/NiceButton';
 
 
 export default function DataScreen1({navigation, route}){
@@ -40,6 +41,9 @@ const currentvalue = data[data.length-1]
         <Text style={styles.text}>Maximum: {"\t\t\t\t\t\t\t\t\t\t\t\t"} {maxvalue} kg</Text>
         <Text style={styles.text}>Minimum: {"\t\t\t\t\t\t\t\t\t\t\t\t"} {minvalue} kg</Text>
         <Text style={styles.text}>Aktuell: {"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"} {currentvalue} kg</Text>
+        <NiceButton 
+        title="View Entry List"
+        onPress={()=>navigation.navigate('ListView', {labels: labels, data: data})}/>
     </View>
     );
 }
